@@ -1,0 +1,5 @@
+language: go
+
+build:
+  ci:
+    - go test github.com/scriptnull/ds/primitive
