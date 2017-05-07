@@ -12,7 +12,7 @@ const (
 )
 
 // Color is an emum type of colors
-// It represents
+// It represents 8 bit colors
 type Color uint8
 
 const (
