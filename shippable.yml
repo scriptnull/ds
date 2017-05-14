@@ -4,6 +4,5 @@ build:
   ci:
     - go test github.com/scriptnull/ds/primitive
     - go test github.com/scriptnull/ds/composite
-    - gcc composite/union.c -o union.out
-    - composite/union.out
-
+    - gcc composite/c/union.c -o union.out
+    - composite/c/union.out
