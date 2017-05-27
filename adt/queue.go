@@ -55,3 +55,34 @@ func (q *ArrQueue) Peek() (int, error) {
 	}
 	return q.arr[q.front], nil
 }
+
+// DynQueue is queue implementation with dynamic array
+type DynQueue struct {
+	arr []int
+}
+
+// Enqueue inserts elements to the queue in rear position
+func (q *DynQueue) Enqueue(element int) error {
+	q.arr = append(q.arr, element)
+	return nil
+}
+
+// Dequeue removes elements from the queue in the front position
+func (q *DynQueue) Dequeue() (int, error) {
+	if len(q.arr) == 0 {
+		return 0, errors.New("Queue underflow")
+	}
+
+	front := q.arr[0]
+	q.arr = q.arr[1:]
+
+	return front, nil
+}
+
+// Peek returns element at the front
+func (q *DynQueue) Peek() (int, error) {
+	if len(q.arr) == 0 {
+		return 0, errors.New("Cannot Peak on empty queue")
+	}
+	return q.arr[0], nil
+}
