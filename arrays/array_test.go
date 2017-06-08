@@ -30,3 +30,22 @@ func TestMultiDimensionalArray(t *testing.T) {
 		}
 	}
 }
+
+func TestJaggedArrays(t *testing.T) {
+	totalElements := 0
+	for rowIndex, row := range jagged {
+		for colIndex := 0; colIndex < len(row); colIndex++ {
+			totalElements++
+			expected, err := strconv.Atoi(strconv.Itoa(rowIndex) + strconv.Itoa(colIndex))
+			if err != nil {
+				t.Error("Expected err to be not null, but got ", err)
+			}
+			if multi[rowIndex][colIndex] != expected {
+				t.Errorf("Expected %d, got %d", expected, multi[rowIndex][colIndex])
+			}
+		}
+	}
+	if totalElements != 3 {
+		t.Error("Expected 3, got ", totalElements)
+	}
+}
